@@ -1,7 +1,11 @@
-import { View, Text, Image } from "react-native";
+import { ScrollView, View, Text, Image, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import Book from "../utils/utils";
+import { useNavigation } from "@react-navigation/native";
+import { ArrowLeftIcon } from "react-native-heroicons/outline";
+
+
 import { RouteProp } from "@react-navigation/native";
 import { RootStackParamList } from "../App";
 import { useRoute } from "@react-navigation/native";
@@ -11,6 +15,8 @@ interface detailsProp {
 }
 
 const BookDetails = ({ data }: detailsProp) => {
+  const navigation = useNavigation();
+
   const route = useRoute();
   const {
     title,
@@ -26,21 +32,29 @@ const BookDetails = ({ data }: detailsProp) => {
   } = route.params;
   return (
     <SafeAreaView>
-      <View className="px-4 py-4">
-        <Text className="py-4 text-xl text-center">Details</Text>
+      <ScrollView className="px-4 py-4 my-4">
+        <View className="flex-row justify-between py-4 mb-8">
+          <Text className="text-xl">Details</Text>
+          <Pressable className="flex-row items-center" onPress={() => navigation.goBack()}>
+            <ArrowLeftIcon size={20} color="blue"/>
+            <Text className="ml-2 text-xl text-blue-600">Go back</Text>
+          </Pressable>
+        </View>
         <Image
           source={{ uri: imgUrl }}
           className="rounded-md w-[350px] h-[350px] self-center object-cover"
         />
-        <View className="p-4 bg-[#cacdc9] mt-4 rounded-lg">
-          <Text className="mb-2 text-4xl">{title}</Text>
-          <Text className="mb-4 text-2xl">{subtitle}</Text>
-          <Text className="mb-4 text-lg leading-5">{description}</Text>
-          <Text className="text-xl text-red-400">By { author}</Text>
-          <Text>Was Published { published } by {publisher}</Text>
-          <Text className="mt-8 text-lg text-green-700">{ pages } pages</Text>
+        <View className="p-2 bg-[#cacdc9] my-4 rounded-lg">
+          <Text className="mb-2 text-[20px]">{title}</Text>
+          <Text className="mb-4 text-lg">{subtitle}</Text>
+          <Text className="mb-4 leading-5 text-[15px]">{description}</Text>
+          <Text className="mb-2 text-red-600 text-md">By {author}</Text>
+          <Text>
+            Was Published {published} by {publisher}
+          </Text>
+          <Text className="my-4 text-green-700 text-md">{pages} pages</Text>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

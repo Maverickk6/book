@@ -17,7 +17,7 @@ type detailsScreenProps = StackNavigationProp<RootStackParamList, "Details">;
 const Homescreen = () => {
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [data, setData] = useState<Book | undefined | any>();
+  const [data, setData] = useState<Book | undefined>();
 
   const navigation = useNavigation<detailsScreenProps>();
 

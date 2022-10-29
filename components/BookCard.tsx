@@ -18,19 +18,19 @@ const BookCard = ({ books }: BookProp) => {
   let data: Book | undefined = books;
 
   return (
-    <View className="flex-row items-center justify-between p-4 my-2 bg-gray-200 rounded-md shadow-md">
+    <View className="flex-row items-center justify-between p-2 my-4 bg-gray-200 rounded-md shadow-sm">
       <Image
         source={{ uri: books.imgUrl }}
-        className="w-24 h-24 p-2 mr-4 rounded-md"
+        className="w-[100px] h-[100px] p-2 mr-4 rounded-md"
       />
-      <View className="flex-1">
-        <Text className="mb-1 text-lg">{books.title}</Text>
-        <Text className="mb-2 text-[16px]">{books.subtitle}</Text>
-        <Text>Author: {books.author}</Text>
-        <Text>Pages: {books.pages}</Text>
-        <Text className="mt-2 text-gray-500">Publisher: {books.publisher}</Text>
+      <View className="flex-1 ">
+        <Text className="mb-1 text-[16px]">{books.title}</Text>
+        <Text className="mb-2 text-[13px]">{books.subtitle}</Text>
+        <Text className="text-[12px]">Author: {books.author}</Text>
+        <Text className="text-[11px]">Pages: {books.pages}</Text>
+        <Text className="mt-2 text-gray-500 text-[12px]">Publisher: {books.publisher}</Text>
       </View>
-      <View className="ml-[10px]">
+      <View className="ml-[5px]">
         <ArrowRightIcon size={25} color="#0EC13E" />
       </View>
     </View>
