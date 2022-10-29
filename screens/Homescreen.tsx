@@ -39,11 +39,13 @@ const Homescreen = () => {
   const getContent = () => {
     if (isLoading) {
       return (
-        <ActivityIndicator
-          size="large"
-          testId="loading"
-          accessibilityLabel="App is loading books"
-        />
+        <View style={{ height: "100%", width: "100%" }}>
+          <ActivityIndicator
+            size="large"
+            testId="loading"
+            accessibilityLabel="App is loading books"
+          />
+        </View>
       );
     }
     if (error) {
@@ -83,8 +85,7 @@ const Homescreen = () => {
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      <Text className="my-4 text-lg text-center text-red-500">Homescreen</Text>
-      <View>{getContent()}</View>
+      <View className="mt-8">{getContent()}</View>
     </View>
   );
 };
