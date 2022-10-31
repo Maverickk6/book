@@ -11,6 +11,7 @@ import BookCard from "../components/BookCard";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../App";
 import { StackNavigationProp } from "@react-navigation/stack";
+import SearchInput from "../components/SearchInput";
 
 type detailsScreenProps = StackNavigationProp<RootStackParamList, "Details">;
 
@@ -77,7 +78,7 @@ const Homescreen = () => {
             >
               <BookCard books={item} accessibilityLabel="books" />
             </Pressable>
-          );
+          );ƒ
         }}
       />
     );
@@ -85,6 +86,7 @@ const Homescreen = () => {
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
+      <SearchInput />
       <View className="mt-8">{getContent()}</View>
     </View>
   );
