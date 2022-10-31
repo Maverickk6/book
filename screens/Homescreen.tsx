@@ -43,7 +43,7 @@ const Homescreen = () => {
       );
   }, []);
 
-  const searchFilterFunction = (text) => {
+  const searchFilterFunction = (text: string) => {
     if (text) {
       const newData = data.filter(function (item) {
         const itemData = item.title
