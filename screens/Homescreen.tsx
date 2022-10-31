@@ -12,6 +12,7 @@ import BookCard from "../components/BookCard";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../App";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 
 type detailsScreenProps = StackNavigationProp<RootStackParamList, "Details">;
 
@@ -111,11 +112,13 @@ const Homescreen = () => {
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      <View className="p-2 mx-1 mt-[20px] bg-gray-300 rounded">
+      <View className="flex-row items-center p-2 mx-1 mt-[20px] bg-gray-300 rounded">
+        <MagnifyingGlassIcon size={20} color="white"/>
         <TextInput
           placeholder="Search For books"
           onChangeText={(text) => searchFilterFunction(text)}
           value={searchTerm}
+          className="ml-[10px]"
         />
       </View>
       <View className="mt-8">{getContent()}</View>
