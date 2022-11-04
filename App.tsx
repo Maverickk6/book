@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Homescreen from "./screens/Homescreen";
 import BookDetails from "./screens/BookDetails";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Book from "./utils/utils";
 
 const Stack = createNativeStackNavigator<RootStackParamList | never>();
 
